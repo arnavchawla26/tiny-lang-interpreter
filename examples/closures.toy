@@ -1,0 +1,19 @@
+# Closures: make_counter returns a function that still has access to
+# its own private `count` variable, even after make_counter has returned.
+
+fn make_counter() {
+    let count = 0;
+    fn increment() {
+        count = count + 1;
+        return count;
+    }
+    return increment;
+}
+
+let counter1 = make_counter();
+let counter2 = make_counter();
+
+print counter1();
+print counter1();
+print counter1();
+print counter2();
