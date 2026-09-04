@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tiny-lang-interpreter"
+version = "0.1.0"
+description = "A hand-written lexer, parser, and tree-walking interpreter for a small toy language"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Arnav Chawla" }]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+toy = "tiny_lang.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["tiny_lang*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
